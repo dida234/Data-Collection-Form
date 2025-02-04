@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collection Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-error" class="error"></p>
+    </div>
+
+    <div id="registration-container" style="display: none;">
+        <h2>Data Collection Form</h2>
+        <form id="registration-form">
+            <label>Name:</label>
+            <input type="text" id="name" required>
+
+            <label>Age:</label>
+            <input type="number" id="age" required>
+
+            <label>What is the capital of Kenya?</label>
+            <div class="options">
+                <label><input type="radio" name="capital" value="Nairobi"> Nairobi</label>
+                <label><input type="radio" name="capital" value="Mombasa"> Mombasa</label>
+                <label><input type="radio" name="capital" value="Kisumu"> Kisumu</label>
+            </div>
+
+            <label>Select your favorite programming languages:</label>
+            <div class="options">
+                <label><input type="checkbox" name="language" value="JavaScript"> JavaScript</label>
+                <label><input type="checkbox" name="language" value="Python"> Python</label>
+                <label><input type="checkbox" name="language" value="Java"> Java</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="form-message" class="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
