@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () { 
     const loginForm = document.getElementById("login-form");
     const loginContainer = document.getElementById("login-container");
     const registrationContainer = document.getElementById("registration-container");
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mock credentials
     const validUsername = "admin";
-    const validPassword = "1234";
+    const validPassword = "551551";
 
     // Handle Login
     loginForm.addEventListener("submit", function (e) {
@@ -22,31 +22,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Handle Registration Form Submission
-    const registrationForm = document.getElementById("registration-form");
-    const formMessage = document.getElementById("form-message");
+    // Handle Structure Question Form Submission
+    const structureForm = document.getElementById("structure-form");
+    const structureMessage = document.getElementById("structure-message");
 
-    registrationForm.addEventListener("submit", function (e) {
+    structureForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("name").value;
-        const age = document.getElementById("age").value;
-        const selectedCapital = document.querySelector('input[name="capital"]:checked');
-        const selectedLanguages = document.querySelectorAll('input[name="language"]:checked');
+        const selectedStructure = document.querySelector('input[name="structure"]:checked');
+        const selectedConcepts = document.querySelectorAll('input[name="concept"]:checked');
 
-        if (!selectedCapital) {
-            alert("Please select the correct capital of Kenya.");
+        if (!selectedStructure) {
+            alert("Please select a structure.");
             return;
         }
 
-        if (selectedCapital.value !== "Nairobi") {
-            alert("Incorrect! The correct answer is Nairobi.");
-            return;
-        }
+        let selectedConceptsList = [];
+        selectedConcepts.forEach(concept => selectedConceptsList.push(concept.value));
 
-        let selectedLangs = [];
-        selectedLanguages.forEach(lang => selectedLangs.push(lang.value));
-
-        formMessage.textContent = `Thank you, ${name}. You selected: ${selectedLangs.join(", ")}`;
+        structureMessage.textContent = `Thank you, ${name}. You selected: ${selectedStructure.value} and the following concepts: ${selectedConceptsList.join(", ")}`;
     });
 });
